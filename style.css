@@ -1,8 +1,6 @@
 :root {
     --aqua: #d42d2d;
-    /* cor principal: Vermelho */
     --aqua-600: #b92525;
-    /* Um tom mais escuro para hover */
     --muted: #6b7280;
     --bg: #f8fffd;
     --card: #ffffff;
@@ -34,7 +32,6 @@ body {
 }
 
 
-/* NAVBAR */
 .navbar {
     background: linear-gradient(90deg, var(--aqua), var(--aqua-600));
     color: #fff;
@@ -65,7 +62,6 @@ nav a:hover {
 }
 
 
-/* HERO & SEARCH INPUT STYLES (Ajustado) */
 .hero {
     display: flex;
     justify-content: space-between;
@@ -79,12 +75,12 @@ nav a:hover {
 }
 
 .hero-actions {
-    display: flex; /* Adicionado para envolver busca e botão */
+    display: flex; 
     gap: 8px;
     align-items: center;
 }
 
-#searchInput { /* Usando #searchInput do index.html */
+#searchInput { 
     padding: 10px 14px;
     border-radius: 10px;
     border: 1px solid rgba(15, 23, 42, 0.06);
@@ -105,7 +101,6 @@ nav a:hover {
 }
 
 
-/* CATALOG */
 .catalog {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -147,7 +142,6 @@ nav a:hover {
 }
 
 
-/* BOTÕES GERAIS (Novo e Unificado) */
 
 .btn, .btn-primary, .btn-secondary {
     border: none;
@@ -160,7 +154,6 @@ nav a:hover {
     text-decoration: none; /* Garante que 'a.btn' funcione */
 }
 
-/* Estilo Primário (Usado para Checkout e Adicionar ao Carrinho) */
 .btn, .btn-primary {
     background: var(--aqua);
     color: #fff;
@@ -170,9 +163,8 @@ nav a:hover {
 }
 
 
-/* Estilo Secundário (Para botões de + e - no carrinho) */
 .btn-secondary {
-    background: var(--aqua); /* Usa a cor principal para o secundário também */
+    background: var(--aqua); 
     color: #fff;
 }
 .btn-secondary:hover {
@@ -224,7 +216,6 @@ nav a:hover {
 }
 
 
-/* CART */
 .cart-list {
     list-style: none;
     padding: 0;
@@ -308,4 +299,5 @@ nav a:hover {
     nav a {
         margin: 0 8px;
     }
+
 }
