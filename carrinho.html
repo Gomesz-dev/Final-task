@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Utilishop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="brand">UTILISHOP</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="login.html">Login</a>
+                <a href="cadastro.html">Cadastrar</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="main container">
+        <h2 class="section-title">Seu Carrinho</h2>
+        <div class="card">
+            <ul id="cart-list" class="cart-list"></ul>
+
+
+            <div class="cart-footer">
+                <div>Total: <strong id="cart-total">R$ 0,00</strong></div>
+                <div>
+                    <button class="btn" id="checkout-button" onclick="checkout()">Finalizar compra</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

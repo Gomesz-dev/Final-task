@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Utilishop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="brand">UTILISHOP</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="cadastro.html">Cadastrar</a>
+                <a href="carrinho.html">Carrinho</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="main container">
+        <div class="card form-card">
+            <h2>Entrar</h2>
+            <form onsubmit="login(event)">
+                <input id="login-email" type="email" placeholder="Email" required>
+                <input id="login-pass" type="password" placeholder="Senha" required>
+                <button type="submit" class="btn">Entrar</button>
+            </form>
+            <p class="muted">Não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+        </div>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
