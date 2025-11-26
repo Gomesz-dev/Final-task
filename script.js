@@ -1,4 +1,4 @@
-// script.js — Versão corrigida e robusta
+
 
 const PRODUCTS = [
   { id: 1, title: 'Copo de Vidro (300ml)', price: 12.90, image: 'https://images.tcdn.com.br/img/img_prod/788312/copo_de_vidro_tubo_300ml_caixa_com_24_pecas_ruvolo_80710_1_9c472de8b81dbd2a45b0fdcfcfe0e279.jpg' },
@@ -243,3 +243,4 @@ window.addEventListener('DOMContentLoaded', () => {
   if (checkoutBtn) checkoutBtn.addEventListener('click', checkout);
 
 });
+
