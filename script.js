@@ -1,6 +1,5 @@
 // script.js — Versão corrigida e robusta
 
-/* ---------- Dados de exemplo (12 produtos) ---------- */
 const PRODUCTS = [
   { id: 1, title: 'Copo de Vidro (300ml)', price: 12.90, image: 'https://images.tcdn.com.br/img/img_prod/788312/copo_de_vidro_tubo_300ml_caixa_com_24_pecas_ruvolo_80710_1_9c472de8b81dbd2a45b0fdcfcfe0e279.jpg' },
   { id: 2, title: 'Escova Multiuso (Cerdas Macias)', price: 19.99, image: 'https://http2.mlstatic.com/D_NQ_NP_911726-MLB81906641372_012025-O-escova-multiuso-limpeza-para-unha-manicure-cerdas-macias.webp' },
@@ -16,7 +15,7 @@ const PRODUCTS = [
   { id: 12, title: 'Escorredor de Louça Compacto', price: 79.90, image: 'https://73035.cdn.simplo7.net/static/73035/sku/11190120419.jpg' }
 ];
 
-/* ---------- Utilitários ---------- */
+
 function formatBRL(n) {
   return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(n);
 }
@@ -25,7 +24,6 @@ function safeGet(id) {
   return document.getElementById(id) || null;
 }
 
-/* ---------- Cart storage (usa chaves como strings) ---------- */
 const CART_KEY = 'utilishop_cart';
 
 function getCart() {
@@ -36,7 +34,7 @@ function saveCart(cart) {
   updateNavCartCount();
 }
 
-/* ---------- Navbar cart count ---------- */
+
 function updateNavCartCount() {
   const el = safeGet('nav-cart-count');
   if (!el) return;
@@ -45,23 +43,18 @@ function updateNavCartCount() {
   el.textContent = count;
 }
 
-/* ---------- Catalog rendering & Search ---------- */
 
-/**
- * Filtra e renderiza o catálogo
- * @param {string} searchTerm Termo de busca
- */
 function renderCatalog(searchTerm = '') {
   const root = safeGet('catalog');
   if (!root) return;
 
-  // Filtra produtos
+
   const lowerCaseSearch = searchTerm.toLowerCase().trim();
   const filteredProducts = PRODUCTS.filter(p =>
     p.title.toLowerCase().includes(lowerCaseSearch)
   );
 
-  root.innerHTML = ''; // Limpa antes de renderizar
+  root.innerHTML = ''; 
 
   if (filteredProducts.length === 0) {
     root.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 30px;">
@@ -69,7 +62,6 @@ function renderCatalog(searchTerm = '') {
       </div>`;
   }
 
-  // Renderiza produtos filtrados
   for (const p of filteredProducts) {
     const div = document.createElement('div');
     div.className = 'produto';
@@ -83,7 +75,6 @@ function renderCatalog(searchTerm = '') {
     root.appendChild(div);
   }
 
-  // delegação de clique
   root.querySelectorAll('.add-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.dataset.id;
@@ -95,14 +86,12 @@ function renderCatalog(searchTerm = '') {
 }
 
 
-
 function searchProducts() {
   const input = safeGet('searchInput');
   if (!input) return;
   const term = input.value;
   renderCatalog(term);
 }
-
 
 
 function addToCart(productId) {
@@ -167,7 +156,6 @@ function renderCartPage() {
 
   totalEl.textContent = formatBRL(total);
 
-  // attach events
   root.querySelectorAll('button[data-action]').forEach(b => {
     b.addEventListener('click', () => {
       const act = b.dataset.action;
@@ -215,7 +203,6 @@ function checkout() {
   window.location.href = 'index.html';
 }
 
-/* ---------- Auth simulada ---------- */
 function login(e) {
   if (e && e.preventDefault) e.preventDefault();
 
@@ -229,7 +216,6 @@ function cadastrar(e) {
   window.location.href = 'login.html';
 }
 
-/* ---------- Inicialização ---------- */
 window.addEventListener('DOMContentLoaded', () => {
   // Renderiza catálogo se existir (index) e anexa listener de busca
   const searchInput = safeGet('searchInput');
@@ -248,13 +234,12 @@ window.addEventListener('DOMContentLoaded', () => {
       searchButton.addEventListener('click', searchProducts);
   }
 
-  // Renderiza carrinho se estivermos na página do carrinho
   renderCartPage();
 
-  // Atualiza contador sempre que a página carrega
   updateNavCartCount();
 
   // Atalho: ligar botão de checkout em pages onde existe
   const checkoutBtn = safeGet('checkout-button');
   if (checkoutBtn) checkoutBtn.addEventListener('click', checkout);
+
 });
